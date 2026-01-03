@@ -1,0 +1,20 @@
+{
+  "name": "daesacorp-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard terpadu DaeSaCorp",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "dashboard",
+    "daesacorp"
+  ],
+  "author": "DaeSaCorp",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.22.1"
+  }
+}
