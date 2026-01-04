@@ -3,9 +3,18 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "ALLOWALL" },
-        { "key": "Content-Security-Policy", "value": "frame-ancestors *" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors * 'self' https://*.wordpress.com https://*.wp.com"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "ALLOW-FROM *"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
     }
   ]
