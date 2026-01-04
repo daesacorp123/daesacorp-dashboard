@@ -5,15 +5,11 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "frame-ancestors * 'self' https://*.wordpress.com https://*.wp.com"
+          "value": "frame-ancestors https://daesacorp.com https://*.daesacorp.com"
         },
         {
           "key": "X-Frame-Options",
-          "value": "ALLOW-FROM *"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "value": "ALLOW-FROM https://daesacorp.com"
         }
       ]
     }
