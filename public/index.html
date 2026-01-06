@@ -3,942 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DaeSaCorp - Solusi Website & Iklan Digital</title>
-    
-    <style>
-        /* ========== VARIABLES ========== */
-        :root {
-            --primary: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #10b981;
-            --dark: #1f2937;
-            --light: #f8fafc;
-            --gray: #6b7280;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --radius: 16px;
-        }
-
-        /* ========== RESET & BASE ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* ========== HERO SECTION ========== */
-        .hero {
-            padding: 4rem 2rem;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            background: white;
-            padding: 1.5rem 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            min-width: 180px;
-        }
-
-        .stat-value {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-top: 0.5rem;
-        }
-
-        /* ========== SERVICES SECTION ========== */
-        .services {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: var(--dark);
-        }
-
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: var(--light);
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-            border-color: var(--primary-light);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            color: white;
-            font-size: 2.5rem;
-        }
-
-        .service-icon.website {
-            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-        }
-
-        .service-icon.google {
-            background: linear-gradient(135deg, #10b981, #34d399);
-        }
-
-        .service-icon.meta {
-            background: linear-gradient(135deg, #3b82f6, #60a5fa);
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .service-desc {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .service-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .service-btn:hover {
-            background: var(--primary-light);
-        }
-
-        /* ========== DASHBOARD PREVIEW ========== */
-        .dashboard-preview {
-            padding: 4rem 2rem;
-            background: var(--light);
-        }
-
-        .preview-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .preview-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e5e7eb;
-            margin-bottom: 1.5rem;
-        }
-
-        .preview-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .preview-stats {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .preview-stat {
-            text-align: center;
-        }
-
-        .preview-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .preview-label {
-            font-size: 0.85rem;
-            color: var(--gray);
-        }
-
-        .ads-toggle {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .toggle-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .toggle-switch {
-            width: 50px;
-            height: 26px;
-            background-color: #d1d5db;
-            border-radius: 13px;
-            position: relative;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .toggle-switch.active {
-            background-color: var(--secondary);
-        }
-
-        .toggle-switch::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: white;
-            border-radius: 50%;
-            top: 3px;
-            left: 3px;
-            transition: transform 0.3s;
-        }
-
-        .toggle-switch.active::after {
-            transform: translateX(24px);
-        }
-
-        .search-box {
-            background: var(--light);
-            border-radius: 8px;
-            padding: 0.8rem 1rem;
-            display: flex;
-            align-items: center;
-            max-width: 400px;
-            margin: 2rem auto;
-        }
-
-        .search-box i {
-            color: var(--gray);
-            margin-right: 0.8rem;
-        }
-
-        .search-box input {
-            border: none;
-            background: none;
-            outline: none;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        /* ========== CTA SECTION ========== */
-        .cta {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), #6366f1);
-            color: white;
-        }
-
-        .cta h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            background: white;
-            color: var(--primary);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.3s;
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .cta-btn.outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-
-        /* ========== DASHBOARD FEATURES ========== */
-        .notification {
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .stat-card {
-            background: #f8fafc;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        .stat-title {
-            font-size: 0.85rem;
-            color: #64748b;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #4f46e5;
-        }
-
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid #e2e8f0;
-            border-top-color: #4f46e5;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 8px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* ========== ICONS (EMOJI FALLBACK) ========== */
-        .fa-globe:before { content: "🌐"; }
-        .fa-google:before { content: "🔍"; }
-        .fa-facebook:before { content: "📘"; }
-        .fa-search:before { content: "🔎"; }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .stats-bar {
-                gap: 1rem;
-            }
-
-            .stat-item {
-                min-width: 140px;
-                padding: 1rem;
-            }
-
-            .stat-value {
-                font-size: 1.8rem;
-            }
-
-            .preview-header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-
-            .preview-stats {
-                gap: 1.5rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 2rem 1rem;
-            }
-
-            .services-container {
-                grid-template-columns: 1fr;
-            }
-
-            .service-card {
-                padding: 2rem;
-            }
-        }
-    </style>
+    <title>Dashboard Marketing | Live Demo</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/landing-script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>DashMarket</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#features">Fitur</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#pricing">Harga</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <button class="btn btn-login">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Bangun. Iklankan. Tumbuhkan.</h1>
-        <p>DaeSaCorp menyediakan tiga layanan penting untuk meningkatkan kehadiran online Anda: Pembuatan Website Profesional, Google Ads, dan manajemen Meta Ads.</p>
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-value">98%</div>
-                <div class="stat-label">Kepuasan Klien</div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Dashboard Marketing <span class="highlight">Live Demo</span></h1>
+                <p class="hero-subtitle">Lihat bagaimana <strong>klien kami</strong> memantau performa iklan secara <strong>real-time</strong>.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large">
+                        <i class="fas fa-play-circle"></i> Lihat Demo Langsung
+                    </button>
+                    <button class="btn btn-secondary btn-large">
+                        <i class="fas fa-calendar-check"></i> Konsultasi Gratis
+                    </button>
+                </div>
             </div>
-            <div class="stat-item">
-                <div class="stat-value">500+</div>
-                <div class="stat-label">Proyek Diselesaikan</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">24/7</div>
-                <div class="stat-label">Dukungan Tersedia</div>
+            <div class="hero-visual">
+                <div class="dashboard-preview">
+                    <div class="dashboard-header">
+                        <div class="metric">
+                            <span class="metric-label">Conversions</span>
+                            <span class="metric-value">1,248</span>
+                            <span class="metric-change up">+12%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">ROI</span>
+                            <span class="metric-value">4.2x</span>
+                            <span class="metric-change up">+8%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">CTR</span>
+                            <span class="metric-value">3.8%</span>
+                            <span class="metric-change down">-1.2%</span>
+                        </div>
+                    </div>
+                    <div class="chart-placeholder"></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
-        <h2 class="section-title">Layanan Utama Kami</h2>
-        <div class="services-container">
-            <!-- Service 1: Website Builder -->
-            <div class="service-card">
-                <div class="service-icon website">
-                    <i class="fas fa-globe"></i>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Apa yang Anda Dapat dengan Dashboard Kami</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Real-time Monitoring</h3>
+                    <p>Pantau performa iklan, traffic, dan konversi secara langsung tanpa delay.</p>
                 </div>
-                <h3 class="service-title">Pembuatan Website</h3>
-                <p class="service-desc">Buat website menarik dan responsif dengan builder drag-and-drop kami. Tidak perlu coding.</p>
-                <a href="#" class="service-btn">Mulai Sekarang</a>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Widget Pro</h3>
+                    <p>Akses semua widget Pro untuk analisis mendalam dan custom reporting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Integrasi Lengkap</h3>
+                    <p>Manfaatkan kekuatan penuh fitur Elementor dan alat pembuatan web lainnya.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Custom Reports</h3>
+                    <p>Buat laporan sesuai kebutuhan tim dan stakeholder dengan drag & drop.</p>
+                </div>
             </div>
-
-            <!-- Service 2: Google Ads -->
-            <div class="service-card">
-                <div class="service-icon google">
-                    <i class="fas fa-google"></i>
-                </div>
-                <h3 class="service-title">Google Ads</h3>
-                <p class="service-desc">Jangkau pelanggan yang mencari produk Anda. Maksimalkan ROI dengan manajemen Google Ads ahli.</p>
-                <a href="#" class="service-btn">Mulai Kampanye</a>
-            </div>
-
-            <!-- Service 3: Meta Ads -->
-            <div class="service-card">
-                <div class="service-icon meta">
-                    <i class="fas fa-facebook"></i>
-                </div>
-                <h3 class="service-title">Meta Ads</h3>
-                <p class="service-desc">Target audiens di Facebook & Instagram. Buat kampanye iklan menarik yang menghasilkan konversi.</p>
-                <a href="#" class="service-btn">Mulai Beriklan</a>
+            <div class="cta-features">
+                <button class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Tingkatkan Sekarang
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Dashboard Preview -->
-    <section class="dashboard-preview">
-        <h2 class="section-title">Dashboard Terpadu</h2>
-        <div class="preview-container">
-            <div class="preview-header">
-                <div class="preview-title">Kelola Semua Layanan di Satu Tempat</div>
-                <div class="preview-stats">
-                    <div class="preview-stat">
-                        <div class="preview-value" id="performanceValue">BBR1 - 3.17%</div>
-                        <div class="preview-label">Performa</div>
-                    </div>
-                    <div class="preview-stat">
-                        <div class="preview-value" id="liveTime">22:27</div>
-                        <div class="preview-label">Update Live</div>
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-play-circle"></i> Lihat Dashboard dalam Aksi
+            </h2>
+            <div class="demo-container">
+                <div class="demo-video">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play"></i>
+                        <p>Video Demo 60 Detik</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="ads-toggle">
-                <div class="toggle-item">
-                    <span>Google Ads</span>
-                    <div class="toggle-switch" id="toggleGoogle"></div>
+                <div class="demo-testimonial">
+                    <p class="testimonial-text">"Dashboard ini membantu tim kami menghemat <strong>10 jam/minggu</strong> dalam pelaporan dan analisis kampanye."</p>
+                    <div class="testimonial-author">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=4A6FA5&color=fff" alt="Client">
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>Head of Marketing, TechCorp</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="toggle-item">
-                    <span>Meta Ads</span>
-                    <div class="toggle-switch" id="toggleMeta"></div>
-                </div>
             </div>
-
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Ketik di sini untuk mencari..." id="dashboardSearch">
-            </div>
-
-            <p style="text-align: center; color: var(--gray); margin-top: 2rem;">
-                Dashboard diperbarui: 01/01/2026
-            </p>
-            
-            <!-- Area untuk statistik tambahan akan ditambahkan oleh JavaScript -->
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <h2>Siap Mengembangkan Bisnis Anda?</h2>
-        <p>Pilih satu layanan atau gabungkan ketiganya untuk dampak maksimal. Mulai hari ini dengan konsultasi gratis.</p>
-        <div class="cta-buttons">
-            <a href="#" class="cta-btn">Mulai Free Trial</a>
-            <a href="#" class="cta-btn outline">Booking Demo</a>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Pilih Paket yang Tepat untuk Anda</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price">Rp 299K<span>/bulan</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Monitoring dasar</li>
+                        <li><i class="fas fa-check"></i> 5 widget standar</li>
+                        <li><i class="fas fa-times"></i> Widget Pro</li>
+                        <li><i class="fas fa-times"></i> Integrasi API</li>
+                        <li><i class="fas fa-times"></i> Support prioritas</li>
+                    </ul>
+                    <button class="btn btn-outline">Pilih Basic</button>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="badge">Rekomendasi</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">Rp 799K<span>/bulan</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> <strong>Akses semua widget Pro</strong></li>
+                        <li><i class="fas fa-check"></i> Integrasi API lengkap</li>
+                        <li><i class="fas fa-check"></i> Unlimited reports</li>
+                        <li><i class="fas fa-check"></i> Support 24/7</li>
+                        <li><i class="fas fa-check"></i> Training tim</li>
+                    </ul>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-star"></i> Tingkatkan Sekarang
+                    </button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">Custom</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Custom dashboard</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                        <li><i class="fas fa-check"></i> On-premise option</li>
+                        <li><i class="fas fa-check"></i> SLA 99.9%</li>
+                        <li><i class="fas fa-check"></i> White label</li>
+                    </ul>
+                    <button class="btn btn-outline">Hubungi Sales</button>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- JavaScript -->
-    <script>
-        // Data dummy untuk dashboard
-        const dashboardData = {
-            website: {
-                status: "active",
-                visitors: 1245,
-                conversion: 3.17,
-                uptime: "99.8%"
-            },
-            googleAds: {
-                status: "active",
-                clicks: 890,
-                impressions: 24500,
-                cost: 1250000,
-                conversions: 45
-            },
-            metaAds: {
-                status: "inactive",
-                reach: 0,
-                engagement: 0,
-                cost: 0,
-                conversions: 0
-            },
-            overall: {
-                performance: "BBR1 - 3.17%",
-                revenue: 28500000,
-                roi: 228
-            }
-        };
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="container">
+            <h3 class="section-subtitle">Dipercaya oleh tim marketing terkemuka</h3>
+            <div class="clients-grid">
+                <div class="client-logo">TechCorp</div>
+                <div class="client-logo">GrowthLab</div>
+                <div class="client-logo">DigitalPlus</div>
+                <div class="client-logo">MarketPro</div>
+                <div class="client-logo">BrandSync</div>
+            </div>
+        </div>
+    </section>
 
-        // Format waktu Indonesia
-        function updateWaktuIndonesia() {
-            const now = new Date();
-            const options = { 
-                timeZone: 'Asia/Jakarta',
-                hour12: false,
-                hour: '2-digit',
-                minute: '2-digit'
-            };
-            const timeStr = now.toLocaleTimeString('id-ID', options);
-            const liveTimeElement = document.getElementById('liveTime');
-            if (liveTimeElement) {
-                liveTimeElement.textContent = timeStr;
-            }
-        }
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="section-title">Siap Mengoptimalkan Performa Marketing Anda?</h2>
+            <p class="section-subtitle">Mulai dengan konsultasi gratis atau langsung coba demo interaktif kami.</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary btn-xlarge">
+                    <i class="fas fa-calendar-alt"></i> Jadwalkan Demo
+                </button>
+                <button class="btn btn-secondary btn-xlarge">
+                    <i class="fas fa-comments"></i> Konsultasi Gratis
+                </button>
+            </div>
+        </div>
+    </section>
 
-        // Inisialisasi Dashboard
-        function initDashboard() {
-            console.log("✅ Dashboard initialized");
-            updateDashboardUI();
-            loadServiceData();
-            setupEventListeners();
-            initNotifications();
-        }
-
-        // Update UI Dashboard
-        function updateDashboardUI() {
-            // Update status toggle
-            const googleToggle = document.getElementById('toggleGoogle');
-            const metaToggle = document.getElementById('toggleMeta');
-            
-            if (googleToggle) {
-                googleToggle.classList.toggle('active', dashboardData.googleAds.status === "active");
-            }
-            if (metaToggle) {
-                metaToggle.classList.toggle('active', dashboardData.metaAds.status === "active");
-            }
-            
-            // Update statistik
-            updateStatsDisplay();
-        }
-
-        // Load data dari API
-        async function loadServiceData() {
-            console.log("📡 Loading service data...");
-            try {
-                // Coba ambil dari API lokal
-                const response = await fetch('/api/dashboard');
-                if (response.ok) {
-                    const data = await response.json();
-                    updateDataFromResponse(data);
-                } else {
-                    throw new Error('API response not OK');
-                }
-            } catch (error) {
-                console.log("⚠️ Using dummy data:", error.message);
-                // Fallback ke data dummy
-                useFallbackData();
-            }
-        }
-
-        // Update data dari response
-        function updateDataFromResponse(response) {
-            if (response.data) {
-                Object.assign(dashboardData.googleAds, response.data.googleAds || {});
-                Object.assign(dashboardData.metaAds, response.data.metaAds || {});
-                Object.assign(dashboardData.website, response.data.website || {});
-                Object.assign(dashboardData.overall, response.data.overall || {});
-            }
-            
-            updateStatsDisplay();
-            
-            // Update timestamp
-            const tanggalElement = document.querySelector('.preview-container p');
-            if (tanggalElement) {
-                const now = new Date();
-                const options = { 
-                    timeZone: 'Asia/Jakarta',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                };
-                tanggalElement.innerHTML = `Dashboard diperbarui: ${now.toLocaleDateString('id-ID', options)}`;
-            }
-            
-            showNotification("✅ Data diperbarui", "success");
-        }
-
-        // Setup event listeners
-        function setupEventListeners() {
-            // Toggle Google Ads
-            const googleToggle = document.getElementById('toggleGoogle');
-            if (googleToggle) {
-                googleToggle.addEventListener('click', function() {
-                    toggleService('googleAds', this);
-                });
-            }
-            
-            // Toggle Meta Ads
-            const metaToggle = document.getElementById('toggleMeta');
-            if (metaToggle) {
-                metaToggle.addEventListener('click', function() {
-                    toggleService('metaAds', this);
-                });
-            }
-            
-            // Search functionality
-            const searchInput = document.getElementById('dashboardSearch');
-            if (searchInput) {
-                searchInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        searchDashboard(this.value);
-                    }
-                });
-            }
-            
-            // Auto-refresh setiap 30 detik
-            setInterval(loadServiceData, 30000);
-        }
-
-        // Toggle service
-        async function toggleService(serviceName, toggleElement) {
-            const isActive = dashboardData[serviceName].status === "active";
-            const newStatus = isActive ? "inactive" : "active";
-            
-            if (isActive) {
-                if (!confirm(`Apakah Anda yakin ingin menonaktifkan ${serviceName === 'googleAds' ? 'Google Ads' : 'Meta Ads'}?`)) {
-                    return;
-                }
-            }
-            
-            try {
-                // Coba kirim ke API
-                const response = await fetch('/api/toggle', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        service: serviceName,
-                        status: newStatus
-                    })
-                });
-                
-                if (response.ok) {
-                    const result = await response.json();
-                    console.log("✅ API Response:", result);
-                }
-                
-                // Update local data
-                dashboardData[serviceName].status = newStatus;
-                toggleElement.classList.toggle('active');
-                
-                // Reload data
-                loadServiceData();
-                
-                const serviceNameID = serviceName === 'googleAds' ? 'Google Ads' : 'Meta Ads';
-                const status = isActive ? 'dinonaktifkan' : 'diaktifkan';
-                showNotification(`${serviceNameID} berhasil ${status}`, "success");
-                
-            } catch (error) {
-                console.error("❌ Error, using local update:", error);
-                
-                // Fallback: update lokal saja
-                dashboardData[serviceName].status = newStatus;
-                toggleElement.classList.toggle('active');
-                
-                const serviceNameID = serviceName === 'googleAds' ? 'Google Ads' : 'Meta Ads';
-                const status = isActive ? 'dinonaktifkan' : 'diaktifkan';
-                showNotification(`${serviceNameID} ${status} (mode offline)`, "info");
-            }
-        }
-
-        // Fungsi pencarian
-        async function searchDashboard(query) {
-            if (!query.trim()) return;
-            
-            try {
-                const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    
-                    if (data.success && data.results.length > 0) {
-                        showNotification(`🔍 Ditemukan ${data.count} hasil untuk "${query}"`, "info");
-                        console.log("Hasil pencarian:", data.results);
-                    } else {
-                        showNotification(`❌ Tidak ditemukan hasil untuk "${query}"`, "warning");
-                    }
-                }
-            } catch (error) {
-                console.error("❌ Search error:", error);
-                showNotification("🔍 Pencarian (mode offline)", "info");
-            }
-        }
-
-        // System notifikasi
-        function initNotifications() {
-            if (!document.getElementById('notification-container')) {
-                const notificationContainer = document.createElement('div');
-                notificationContainer.id = 'notification-container';
-                notificationContainer.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    z-index: 1000;
-                `;
-                document.body.appendChild(notificationContainer);
-            }
-        }
-
-        function showNotification(message, type = "info") {
-            initNotifications();
-            
-            const notification = document.createElement('div');
-            notification.className = `notification notification-${type}`;
-            notification.innerHTML = `
-                <div style="
-                    background: ${type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#3b82f6'};
-                    color: white;
-                    padding: 12px 20px;
-                    border-radius: 8px;
-                    margin-bottom: 10px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    min-width: 300px;
-                ">
-                    <span>${message}</span>
-                    <button onclick="this.parentElement.parentElement.remove()" style="
-                        background: none;
-                        border: none;
-                        color: white;
-                        cursor: pointer;
-                        font-size: 18px;
-                    ">×</button>
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-chart-line"></i>
+                        <span>DashMarket</span>
+                    </div>
+                    <p>Solusi dashboard marketing terintegrasi untuk optimasi performa iklan secara real-time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-            `;
-            
-            document.getElementById('notification-container').appendChild(notification);
-            
-            setTimeout(() => {
-                if (notification.parentElement) {
-                    notification.remove();
-                }
-            }, 5000);
-        }
+                <div class="footer-col">
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Partner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="#features">Fitur</a></li>
+                        <li><a href="#pricing">Harga</a></li>
+                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#">Integrasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@dashmarket.com</li>
+                        <li><i class="fas fa-phone"></i> +62 812-3456-7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dashboard Marketing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-        // Fallback data jika API tidak tersedia
-        function useFallbackData() {
-            console.log("⚠️ Using fallback data");
-            const mockResponse = {
-                data: dashboardData,
-                timestamp: new Date().toISOString()
-            };
-            updateDataFromResponse(mockResponse);
-        }
-
-        // Update statistik tambahan
-        function updateAdditionalStats() {
-            let additionalStats = document.querySelector('.additional-stats');
-            if (!additionalStats) {
-                additionalStats = document.createElement('div');
-                additionalStats.className = 'additional-stats';
-                additionalStats.style.cssText = `
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                    gap: 1rem;
-                    margin-top: 2rem;
-                    padding-top: 1rem;
-                    border-top: 1px solid #e5e7eb;
-                `;
-                
-                additionalStats.innerHTML = `
-                    <div class="stat-card">
-                        <div class="stat-title">Total Klik</div>
-                        <div class="stat-value" id="totalClicks">${dashboardData.googleAds.clicks}</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-title">Impresi</div>
-                        <div class="stat-value" id="totalImpressions">${dashboardData.googleAds.impressions.toLocaleString()}</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-title">Biaya</div>
-                        <div class="stat-value" id="totalCost">Rp ${dashboardData.googleAds.cost.toLocaleString()}</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-title">ROI</div>
-                        <div class="stat-value" id="roiValue">${dashboardData.overall.roi}%</div>
-                    </div>
-                `;
-                
-                const previewContainer = document.querySelector('.preview-container');
-                if (previewContainer) {
-                    previewContainer.appendChild(additionalStats);
-                }
-            }
-        }
-
-        // Update tampilan statistik
-        function updateStatsDisplay() {
-            updateAdditionalStats();
-        }
-
-        // Animasi untuk kartu layanan
-        function initServiceCardAnimations() {
-            const observerOptions = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.service-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s, transform 0.5s';
-                observer.observe(card);
-            });
-        }
-
-        // Inisialisasi saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log("📄 DOM loaded, initializing...");
-            
-            // Update waktu setiap detik
-            setInterval(updateWaktuIndonesia, 1000);
-            updateWaktuIndonesia();
-            
-            // Inisialisasi dashboard
-            initDashboard();
-            
-            // Inisialisasi animasi kartu
-            initServiceCardAnimations();
-        });
-    </script>
-
-<script src="dashboard.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

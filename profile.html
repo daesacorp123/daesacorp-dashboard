@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaeSaCorp - Solusi Digital Terpadu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #10b981;
+            --dark: #1f2937;
+            --light: #f8fafc;
+            --gray: #6b7280;
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Header */
+        .company-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary), #6366f1);
+            color: white;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+        }
+
+        .company-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .company-header .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Services */
+        .services-section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: var(--dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-light);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .service-icon.website {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+
+        .service-icon.google {
+            background: linear-gradient(135deg, #10b981, #34d399);
+        }
+
+        .service-icon.meta {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-desc {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        /* Stats */
+        .stats-section {
+            background: white;
+            border-radius: var(--radius);
+            padding: 50px;
+            margin: 60px 0;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            margin: 60px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-light), #a5b4fc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .client-details h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .client-details p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, var(--primary), #6366f1);
+            color: white;
+            border-radius: var(--radius);
+            margin-top: 60px;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        /* Footer */
+        .company-footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--gray);
+            margin-top: 50px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .company-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .stats-section {
+                padding: 30px 20px;
+            }
+            
+            .stat-value {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="company-header">
+            <h1>DaeSaCorp</h1>
+            <p class="tagline">Solusi Terpadu untuk Transformasi Digital Bisnis Anda</p>
+        </header>
+
+        <!-- Services -->
+        <section class="services-section">
+            <h2 class="section-title">Layanan Utama Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon website">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="service-title">Pembuatan Website Profesional</h3>
+                    <p class="service-desc">Website responsive dengan desain modern, optimasi SEO, dan integrasi sistem lengkap untuk bisnis Anda.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon google">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3 class="service-title">Google Ads Management</h3>
+                    <p class="service-desc">Kampanye iklan teroptimasi untuk meningkatkan konversi dan ROI. Dari keyword research hingga performance tracking.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon meta">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3 class="service-title">Meta Ads Strategy</h3>
+                    <p class="service-desc">Iklan Facebook & Instagram yang tepat sasaran. Audience targeting, creative optimization, dan analytics lengkap.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">500+</div>
+                    <div class="stat-label">Proyek Diselesaikan</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">98%</div>
+                    <div class="stat-label">Kepuasan Klien</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Dukungan Teknis</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">50+</div>
+                    <div class="stat-label">Klien Aktif</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <h2 class="section-title">Apa Kata Klien Kami</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"DaeSaCorp membantu bisnis kami meningkat 300% dalam 6 bulan melalui kampanye Google Ads yang tepat sasaran."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">AS</div>
+                        <div class="client-details">
+                            <h4>Ahmad Santoso</h4>
+                            <p>CEO, FashionStoreID</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Website yang dibuat sangat profesional dan mudah dikelola. Support 24/7 sangat membantu operasional kami."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">RD</div>
+                        <div class="client-details">
+                            <h4>Rina Dewi</h4>
+                            <p>Owner, CateringSehat</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Meta Ads campaign dari DaeSaCorp menghasilkan lead quality yang jauh lebih baik dengan biaya lebih efisien."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">TP</div>
+                        <div class="client-details">
+                            <h4>Tri Putra</h4>
+                            <p>Marketing Manager, TechSolution</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2 class="cta-title">Siap Mengembangkan Bisnis Anda?</h2>
+            <p>Diskusi gratis dengan tim ahli kami untuk solusi terbaik kebutuhan digital bisnis Anda.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6281234567890" target="_blank" class="cta-btn">
+                    <i class="fab fa-whatsapp"></i> Konsultasi via WhatsApp
+                </a>
+                <a href="mailto:info@daesacorp.com" class="cta-btn secondary">
+                    <i class="fas fa-envelope"></i> Email Kami
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="company-footer">
+            <p>© 2024 DaeSaCorp. All rights reserved.</p>
+            <p>Solusi Digital Terpadu untuk Bisnis Indonesia</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animation for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const stats = document.querySelectorAll('.stat-value');
+            stats.forEach(stat => {
+                const finalValue = stat.textContent;
+                stat.textContent = '0';
+                
+                let counter = 0;
+                const increment = parseInt(finalValue) / 50;
+                const timer = setInterval(() => {
+                    counter += increment;
+                    if (counter >= parseInt(finalValue)) {
+                        stat.textContent = finalValue;
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(counter);
+                    }
+                }, 30);
+            });
+        });
+    </script>
+</body>
+</html>
