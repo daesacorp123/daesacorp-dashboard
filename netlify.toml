@@ -1,0 +1,13 @@
+[build]
+publish = "public"
+command = ""
+[[redirects]]
+from = "/*"
+cat > netlify.toml << 'EOF'
+[build]
+publish = "public"
+command = ""
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
